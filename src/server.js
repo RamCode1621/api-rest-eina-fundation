@@ -23,5 +23,6 @@ app.use(function(req, res, next){
 app.use(require('./routes/Estudiantes.routes')) 
 app.use(require('./routes/Profesores.routes'))
 app.use(require('./routes/Administradores.routes'))
+app.use(require('./routes/Cursos.routes'))
 
 module.exports=app
