@@ -24,5 +24,6 @@ app.use(require('./routes/Estudiantes.routes'))
 app.use(require('./routes/Profesores.routes'))
 app.use(require('./routes/Administradores.routes'))
 app.use(require('./routes/Cursos.routes'))
+app.use(require('./routes/Materias.routes'))
 
 module.exports=app
