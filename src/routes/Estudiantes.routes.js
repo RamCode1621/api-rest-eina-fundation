@@ -6,7 +6,6 @@ const {
     getEstudiante,
     createEstudiante,
     updateEstudiante,
-    deleteEstudiante
 }=require('../controllers/Estudiantes.controller')
 
 router.get('/api/v1/get/estudiantes',getEstudiantes)

@@ -51,7 +51,7 @@ ControllerEstudiante.updateEstudiante=async(req,res)=>{
     .catch(error=>{
         res.json(error)
     }) 
-}
+} 
 
 
 module.exports=ControllerEstudiante
