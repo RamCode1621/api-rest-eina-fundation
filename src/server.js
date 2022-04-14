@@ -22,5 +22,6 @@ app.use(function(req, res, next){
 //  Routes
 app.use(require('./routes/Estudiantes.routes')) 
 app.use(require('./routes/Profesores.routes'))
+app.use(require('./routes/Administradores.routes'))
 
 module.exports=app
