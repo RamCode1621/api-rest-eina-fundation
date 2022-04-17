@@ -1,16 +1,20 @@
 const ControllerEstudiante=[]
 const pool=require('../database')
-
+ 
 
 ControllerEstudiante.getEstudiantes=async(req,res)=>{
     let query=`select id_estudiante as Id, concat(apellidos," ",nombres) as Nombre, cedula as Cedula, telefono as Telefono, direccion as Direccion, correo as Correo from Estudiantes;`
 
+    // console.log(req.route.path)
     pool.query(query)
     .then(result=>{
-        res.json(result)
+        res.status(200).json({
+            info:req.headers.authorization.infoUser,
+            data:result
+        })
     })
     .catch(error=>{
-        res.json(error)
+        res.status(404).json(error)
     })
 }
 
@@ -20,10 +24,10 @@ ControllerEstudiante.getEstudiante=async(req,res)=>{
 
     pool.query(query)
     .then(result=>{
-        res.json(result)
+        res.status(200).json(result)
     })
     .catch(error=>{ 
-        res.json(error)
+        res.status(404).json(error)
     })
 }
 
@@ -33,10 +37,10 @@ ControllerEstudiante.createEstudiante=async(req,res)=>{
 
     pool.query(query)
     .then(result=>{
-        res.json(result)
+        res.status(201).json(result)
     })
     .catch(error=>{
-        res.json(error)
+        res.status(400).json(error)
     })
 }
 
@@ -46,10 +50,10 @@ ControllerEstudiante.updateEstudiante=async(req,res)=>{
     
     pool.query(query)
     .then(result=>{
-        res.json(result)
+        res.status(201).json(result)
     })
     .catch(error=>{
-        res.json(error)
+        res.status(400).json(error)
     }) 
 } 
 

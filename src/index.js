@@ -1,5 +1,5 @@
-require('dotenv').config('./')
-const app=require('./src/server')
+require('dotenv').config('../')
+const app=require('./server')
 
 const port=process.env.PORT
 

@@ -1,5 +1,6 @@
 const ControllerProfesor=[]
 const pool=require('../database')
+const encryptPassword=require('../functions/bcrypt')
 
 
 ControllerProfesor.getProfesores=async(req,res)=>{
@@ -29,6 +30,7 @@ ControllerProfesor.getProfesor=async(req,res)=>{
 
 ControllerProfesor.createProfesor=async(req,res)=>{
     let {nombres,apellidos,cedula,telefono,direccion,correo,titulacion,password}=req.body
+    // password=await encryptPassword(password)
     let query=`call eina_fundation.crearProfesor('${nombres}', '${apellidos}', '${cedula}', '${telefono}', '${correo}', '${direccion}', '${titulacion}', '${password}');`
 
     pool.query(query)
@@ -42,6 +44,7 @@ ControllerProfesor.createProfesor=async(req,res)=>{
 
 ControllerProfesor.updateProfesor=async(req,res)=>{
     let {id,nombres,apellidos,cedula,telefono,direccion,correo, titulacion, password}=req.body
+    // password=await encryptPassword(password)
     let query=`call eina_fundation.editarProfesor(${id},'${nombres}', '${apellidos}', '${cedula}', '${telefono}', '${correo}', '${direccion}', '${titulacion}', '${password}');`
     
     pool.query(query)

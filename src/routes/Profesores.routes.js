@@ -8,9 +8,12 @@ const {
     updateProfesor,
 }=require('../controllers/Profesores.controller')
 
-router.get('/api/v1/get/profesores',getProfesores)
-router.get('/api/v1/get/profesores/:id',getProfesor)
-router.post('/api/v1/post/profesor',createProfesor)
-router.put('/api/v1/put/profesor',updateProfesor)
+const validateToken = require('../middlewares/validateToke')
+const verifyPermission = require('../middlewares/verifyPermission')
+
+router.get('/api/v1/get/profesores',validateToken,verifyPermission,getProfesores)
+router.get('/api/v1/get/profesores/:id',validateToken,verifyPermission,getProfesor) 
+router.post('/api/v1/post/profesor',validateToken,verifyPermission,createProfesor)
+router.put('/api/v1/put/profesor',validateToken,verifyPermission,updateProfesor)
 
 module.exports=router

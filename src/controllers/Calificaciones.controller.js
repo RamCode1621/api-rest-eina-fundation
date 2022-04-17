@@ -7,10 +7,10 @@ ControllerCalificacion.getCalificaciones=async(req,res)=>{
 
     pool.query(query)
     .then(result=>{
-        res.json(result)
+        res.status(200).json(result)
     })
     .catch(error=>{
-        res.json(error)
+        res.status(404).json(error)
     })
 }
 
@@ -20,10 +20,10 @@ ControllerCalificacion.getCalificacion=async(req,res)=>{
 
     pool.query(query)
     .then(result=>{
-        res.json(result)
+        res.status(200).json(result)
     })
     .catch(error=>{ 
-        res.json(error)
+        res.status(404).json(error)
     })
 }
 
@@ -33,10 +33,10 @@ ControllerCalificacion.createCalificacion=async(req,res)=>{
 
     pool.query(query)
     .then(result=>{
-        res.json(result)
+        res.status(201).json(result)
     })
     .catch(error=>{
-        res.json(error)
+        res.status(400).json(error)
     })
 }
 
@@ -47,10 +47,10 @@ ControllerCalificacion.updateCalificacion=async(req,res)=>{
     
     pool.query(query)
     .then(result=>{
-        res.json(result)
+        res.status(201).json(result)
     })
     .catch(error=>{
-        res.json(error)
+        res.status(400).json(error)
     }) 
 } 
 

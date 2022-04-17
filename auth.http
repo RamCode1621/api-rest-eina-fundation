@@ -1,0 +1,7 @@
+POST https://localhost:8000/api/v1/post/auth HTTP/1.1
+content-type: application/json
+
+{
+    "cedula": "1205361346",
+    "password": "dfjk24-t24trh29_29348#$"
+}
