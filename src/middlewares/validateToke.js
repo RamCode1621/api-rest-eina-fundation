@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken"
+const jwt =require("jsonwebtoken")
 
 function validateToken(req, res, next){
     const objectAuth=req.headers.authorization

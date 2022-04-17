@@ -5,7 +5,7 @@ const encryptPassword=require('../functions/bcrypt')
 
 ControllerAuthentication.authentication=async(req,res)=>{
     const {cedula, password,typeCout}=req.body
-
+ 
     let data = await verifyIdentity(cedula,passwor,typeCout)
 
     if(!data){

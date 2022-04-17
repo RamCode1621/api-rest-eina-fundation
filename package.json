@@ -4,8 +4,8 @@
   "description": "Este es el servidor para el module de calificaciones",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js --exec babel-node",
-    "start": "node build/index.js",
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
     "build": "babel src --out-dir build"
   },
   "keywords": [
