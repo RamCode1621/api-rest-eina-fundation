@@ -1,6 +1,6 @@
 const ControllerProfesor=[]
 const pool=require('../database')
-const encryptPassword=require('../functions/bcrypt')
+// const encryptPassword=require('../functions/bcrypt')
 
 
 ControllerProfesor.getProfesores=async(req,res)=>{

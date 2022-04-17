@@ -1,6 +1,6 @@
 const ControllerAdministrador=[]
 const pool=require('../database')
-const encryptPassword=require('../functions/bcrypt')
+// const encryptPassword=require('../functions/bcrypt')
 
 
 ControllerAdministrador.getAdministradores=async(req,res)=>{
