@@ -6,9 +6,9 @@ const encryptPassword=require('../functions/bcrypt')
 ControllerAuthentication.authentication=async(req,res)=>{
     const {cedula, password,typeCout}=req.body
  
-    let data = await verifyIdentity(cedula,passwor,typeCout)
+    let data = await verifyIdentity(cedula,password,typeCout)
 
-    if(!data){
+    if(!data){ 
         res.status(401).json({message:"Error: El usuario no existe o las credenciales son incorrectas"}) 
     }else if(data.error){
         res.status(401).json({message:data.error})
