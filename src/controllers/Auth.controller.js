@@ -1,7 +1,7 @@
 const ControllerAuthentication=[]
 const pool=require('../database')
 const jwt=require('jsonwebtoken')
-const encryptPassword=require('../functions/bcrypt')
+// const encryptPassword=require('../functions/bcrypt')
 
 ControllerAuthentication.authentication=async(req,res)=>{
     const {cedula, password,typeCout}=req.body

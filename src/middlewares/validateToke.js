@@ -1,25 +1,21 @@
 const jwt =require("jsonwebtoken")
-
+// 54.152.168.242:3333
 function validateToken(req, res, next){
-    const objectAuth=req.headers.authorization
-    let auth=objectAuth.split(" ")
-    auth=JSON.parse(objectAuth)
-    req.headers.authorization=auth
-   
-    let token=auth.accessToken
-    
+    let token=req.headers.authorization
+
     if(token){
         jwt.verify(token,process.env.JWT_SECRET,(err,decoded)=>{
             if(err){
                 res.status(401).json({
                     message:'Token inválido'
-                })
-            }else{ 
-                // req.decoded=decoded
+                }) 
+            }else{
+                console.log(decoded)
                 next()
             }
         })
     }else{
+        // console.log(req.headers)
         res.status(401).json({
             message:'Token no proveído'
         })

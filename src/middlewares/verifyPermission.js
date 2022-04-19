@@ -23,17 +23,21 @@ const verifyAccesToResource=(req)=>{
 
 function verifyPermission(req,res,next) {
     
-    if(req.headers.authorization.infoUser.rol==='administrador'){   
-       next() 
-    }else if(req.headers.authorization.infoUser.rol==='profesor'){
-        if(verifyAccesToResource(req)){
-            next()
-        }else{
-            res.status(401).json({message:"Error: No tiene permisos para realizar esta acción"})
-        }
-    }else{
-        res.status(500).json({message:"Error: No se reconoce el tipo de usuario"})
-    }
+   if(req.headers.typeuser){
+    if(req.headers.typeuser==='administrador'){   
+        next() 
+     }else if(req.headers.typeuser==='profesor'){
+         if(verifyAccesToResource(req)){
+             next()
+         }else{
+             res.status(401).json({message:"Error: No tiene permisos para realizar esta acción"})
+         }
+     }else{
+         res.status(500).json({message:"Error: No se reconoce el tipo de usuario"})
+     }
+   }else{
+        res.status(401).json({message:"Error: Rol de usuario no definido"})
+   }
 }
 
 module.exports = verifyPermission;
