@@ -3,9 +3,19 @@ const pool=require('../database')
 
 
 ControllerCalificacion.getCalificaciones=async(req,res)=>{
-    let query=`select * from view_all_calificaciones;`
+    let query
+    const cedula =req.headers.cedula
+    if(cedula){
+        if(req.headers.typeuser==='administrador'){
+            query=`select * from view_all_calificaciones`;  
+        }else{
+            query=`select * from view_all_calificaciones where CedulaProfesor=${cedula} and Habilitado=true;`
+        }
+    }else{
+        res.json({message:'No se ha enviado la cedula o no es valida.'})
+    }
 
-    pool.query(query)
+    pool.query(query) 
     .then(result=>{
         res.status(200).json(result)
     })
