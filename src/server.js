@@ -1,6 +1,7 @@
 const { urlencoded } = require('express')
 const express =require('express')
 const morgan=require('morgan')
+const cors=require('cors')
 // const pool=require('./database')
 
 const uri=process.env.URI_FRONT
@@ -11,14 +12,15 @@ const app=express()
 
 // Sttings
 app.use(express.json())
-app.use(express.urlencoded({extended:false}))
-app.use(morgan('dev')) 
+app.use(express.urlencoded({extended:false})) 
+app.use(morgan('dev'))   
 
 // Middlewares
+
 app.use(function(req, res, next){ 
-    res.header('Access-Control-Allow-Origin',uri);
-    res.header('Access-Control-Allow-Methods',['GET,PUT,POST,DELETE']);
-    res.header('Access-Control-Allow-Headers', ['Content-Type']);
+    res.header('Access-Control-Allow-Origin', "http://localhost:3000");
+    res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers','Content-Type,Origin,Accept,X-Requested-With, Access-Control-Request-Method,Access-Control-Request-Headers,cedula,authorization,typeuser');
     next(); 
 })
 

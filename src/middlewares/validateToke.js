@@ -10,7 +10,7 @@ function validateToken(req, res, next){
                     message:'Token inválido'
                 }) 
             }else{
-                console.log(decoded)
+                // console.log(decoded)
                 next()
             }
         })

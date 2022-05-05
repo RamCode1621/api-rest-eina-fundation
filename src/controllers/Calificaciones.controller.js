@@ -3,25 +3,31 @@ const pool=require('../database')
 
 
 ControllerCalificacion.getCalificaciones=async(req,res)=>{
-    let query
-    const cedula =req.headers.cedula
-    if(cedula){
-        if(req.headers.typeuser==='administrador'){
-            query=`select * from view_all_calificaciones`;  
-        }else{
-            query=`select * from view_all_calificaciones where CedulaProfesor=${cedula} and Habilitado=true;`
-        }
-    }else{
-        res.json({message:'No se ha enviado la cedula o no es valida.'})
-    }
+    console.log(req.headers)
+    // try {
+        let query
+        let {cedula, typeuser} =req.headers
 
-    pool.query(query) 
-    .then(result=>{
-        res.status(200).json(result)
-    })
-    .catch(error=>{
-        res.status(404).json(error)
-    })
+        if(cedula){
+            if(typeuser==='administrador'){
+                query=`select * from view_all_calificaciones`;  
+            }else{
+                query=`select * from view_all_calificaciones where CedulaProfesor=${cedula} and Habilitado=true;`
+            }
+        }else{
+            res.json({message:'No se ha enviado la cedula o no es valida.'})
+        }
+
+        pool.query(query) 
+        .then(result=>{ 
+            res.status(200).json(result)
+        })
+        .catch(error=>{
+            res.status(404).json(error)
+        })
+    // } catch (error) {
+    //     res.status(500).json(error)
+    // }
 }
 
 ControllerCalificacion.getCalificacion=async(req,res)=>{

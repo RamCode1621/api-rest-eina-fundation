@@ -4,7 +4,7 @@ module.exports = {
     script      : "src/index.js",
     watch       : true,
     merge_logs  : true,
-    cwd         : "/home/ubuntu/api-rest-eina-fundation",
-   }
+    // cwd         : "/home/ubuntu/api-rest-eina-fundation",
+    // cwd: "/home/richard/Documents/Proyects/api-rest-eina-fundation"
+   }]
 }
-
