@@ -9,7 +9,7 @@ const whitelistProfesor =[
         `/api/v1/get/materias`,
         `/api/v1/get/materias/:id`
 ]
-
+ 
 
 
 const verifyAccesToResource=(req)=>{
@@ -19,7 +19,7 @@ const verifyAccesToResource=(req)=>{
     }else{
         return false
     }
-}
+} 
 
 function verifyPermission(req,res,next) {
     
@@ -30,12 +30,14 @@ function verifyPermission(req,res,next) {
          if(verifyAccesToResource(req)){
              next()
          }else{
+             
              res.status(401).json({message:"Error: No tiene permisos para realizar esta acción"})
          }
      }else{
          res.status(500).json({message:"Error: No se reconoce el tipo de usuario"})
      }
    }else{
+    
         res.status(401).json({message:"Error: Rol de usuario no definido"})
    }
 }

@@ -21,7 +21,7 @@ pool.getConnection((err,connection)=>{
     console.log('DB is connected')
     return
 })  
- 
+
 pool.query=promisify(pool.query)
 
 module.exports=pool

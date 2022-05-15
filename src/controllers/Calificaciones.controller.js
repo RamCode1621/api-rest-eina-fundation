@@ -59,8 +59,7 @@ ControllerCalificacion.createCalificacion=async(req,res)=>{
 ControllerCalificacion.updateCalificacion=async(req,res)=>{
     let {id, parametro, valorCalificacion,valorConducta}=req.body
     let query=`call eina_fundation.editarCalificacion(${id},'${parametro}',${valorCalificacion},'${valorConducta}');`
-
-    
+    console.log(req.body)
     pool.query(query)
     .then(result=>{
         res.status(201).json(result)
