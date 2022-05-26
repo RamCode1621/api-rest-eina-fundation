@@ -8,10 +8,12 @@ ControllerEstudiante.getEstudiantes=async(req,res)=>{
     // console.log(req.route.path)
     pool.query(query)
     .then(result=>{
-        res.status(200).json({
-            info:req.headers.authorization.infoUser,
-            data:result
-        })
+        res.status(200).json(
+            // {
+            // info:req.headers.authorization.infoUser,
+            result
+        // }
+        )
     })
     .catch(error=>{
         res.status(404).json(error)
