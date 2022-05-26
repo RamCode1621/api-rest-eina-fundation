@@ -18,7 +18,7 @@ app.use(morgan('dev'))
 // Middlewares
 
 app.use(function(req, res, next){ 
-    res.header('Access-Control-Allow-Origin', "*");
+    res.header('Access-Control-Allow-Origin', "https://fundationeina.web.app/");
     res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE,OPTIONS,PATCH');
     res.header('Access-Control-Allow-Headers','Content-Type,Origin,Accept,X-Requested-With, Access-Control-Request-Method,Access-Control-Request-Headers,cedula,authorization,typeuser');
     next(); 
